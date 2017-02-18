@@ -17,3 +17,26 @@ You can do these.
 뭐 이런식으로 내가 할 수 있는 것들이 무엇인지를 사용자 스스로 기술해놓기만 하면 된다.
 이제 프롬프트의 깜박이는 커서만 바라보며 멍한 기분이 들땐 'wcid'를 하면 답을 알려준다.
 체계화하고 발전시키면 alias용 툴로도 쓸 수 있고 wcid 설정파일을 서로 공유하면서 사용할 수도 있을 것이다.
+
+* wcid만 입력하면 내가 할 수 있는 전체 내용을 보여준다.
+* 사용자 history를 조회하여 사용자가 하고자 하는걸 유추하고 그에 맞는 정보를 제공한다.
+* 사용자에게 history를 조회하여 쓰고자 하는 argument를 전달해준다. ex) $(wcid 2 $) -> 바로 전 cmd의 두번째와 마지막 argument를 전달
+
+``` sh
+$ docker
+$ wcid
+  * docker run
+  * docker ps -a -s
+  ...
+$ apt-get
+$ wcid
+  1. apt-get update : Resynchronize the package index files.
+  2. apt-get-repository <ppa:whatever/ppa> : add repo
+  ...
+$ wcid git
+  1. git clone https://github.com/<user>/<repo>.git
+  2. git log --graph
+  ...
+$ wcid git 1
+$ git clone https://github.com/<user>/<repo>.git    <---- curses, move tab and type and return
+```
